@@ -15,3 +15,4 @@ def loadaverage():
 def memory():
     #svmem(total=620265472, available=190590976, percent=69.3, used=531537920, free=88727552, active=421326848, inactive=57815040, buffers=19206144, cached=82657280)
     mem = psutil.phymem_usage()
+    return ["%s%s memory avaliable." % (mem[2], "%"), "Total: %s, Avaliable: %s, Used %s" % (mem[0], mem[1], mem[4])]
