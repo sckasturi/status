@@ -1,3 +1,4 @@
+from hurry.filesize import size
 import subprocess
 import psutil
 
@@ -10,16 +11,17 @@ def uptime():
 def loadaverage():
     cmd = subprocess.check_output(['cat', '/proc/loadavg'], stderr=subprocess.STDOUT).decode().strip().replace('\n', '')
     #loadaverage = cmd.split(',', maxsplit=3)[3].strip().replace(",", "")
-    return cmd
+    return cmd.split()
 
 def memory():
     #svmem(total=620265472, available=190590976, percent=69.3, used=531537920, free=88727552, active=421326848, inactive=57815040, buffers=19206144, cached=82657280)
-    mem = psutil.phymem_usage()
-    return ["%s%s memory avaliable." % (mem[2], "%"), "Total: %s, Avaliable: %s, Used %s" % (mem[0], mem[1], mem[4])]
-
+    cmd = psutil.phymem_usage()
+    mem = [cmd[2], size(cmd[0]), size(cmd[1])]
+    #return ["%s%s memory avaliable." % (mem[2], "%"), "Total: %s, Avaliable: %s, Used %s" % (mem[0], mem[1], mem[3])]
+    return mem
 def users():
     cmd = subprocess.check_output(['who', '-q'], stderr=subprocess.STDOUT).decode().strip().split("\n")
-    return cmd[0]
+    return list(set(cmd[0].split()))
 
 def hostname():
     return subprocess.check_output('hostname', stderr=subprocess.STDOUT).decode().strip().replace("\n", "")

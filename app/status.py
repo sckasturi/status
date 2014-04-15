@@ -5,5 +5,9 @@ from app import values
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html", server = values.hostname(), uptime = values.uptime(), user = values.users(), load = values.loadaverage(), memory = values.memory())
+    return render_template("index.html", server = values.hostname(), uptime = values.uptime(), users = values.users(), load = values.loadaverage(), memory = values.memory())
+
+@app.route('/robots.txt')
+def robots():
+    return 'user-agent: * Disallow: /'
 
