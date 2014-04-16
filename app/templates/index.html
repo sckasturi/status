@@ -59,15 +59,15 @@
         </div>
         <div class="col-md-4">
           <h2>Load Averages</h2>
-          <p><ul><li>1 min: {{load.0}}</li><li>5 min: {{load.1}}</li><li>15 min: {{load.2}}</li></ul></p>
+          <p><ul><li>1 min: {{load["1m"]}}</li><li>5 min: {{load["5m"]}}</li><li>15 min: {{load["15m"]}}</li></ul></p>
        </div>
         <div class="col-md-4">
           <h2>Free Memory</h2>
-          <p>{{memory.0}}% avaliable
+          <p>{{memory.percent}}% used
 	      <br/>
-	      Total: {{memory.1}}
+	      Total: {{memory.total}}
 	      <br/>
-	      Avaliable: {{memory.2}}
+	      Avaliable: {{memory.avaliable}}
           </p>
         </div>
       </div>
