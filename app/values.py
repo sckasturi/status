@@ -26,7 +26,7 @@ def memory():
     output = {
         'percent': str(cmd[2]),
 	'total': utils.size(cmd[0]),
-	'avaliable': utils.size(cmd[1])
+	'available': utils.size(cmd[1])
     }
     return output
 
