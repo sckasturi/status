@@ -1,6 +1,9 @@
 #status
 Status is a simple python based applet that allows for any sysadmin to see the status of their server. It shows some information including load average, uptime, users logged in, and memory available.
 
+Live Demo
+---------
+The development version can be found at http://rio.techfilmer.com:5000 and the production at http://cadoth.net:5000
 How to run
 ----------
 ```
